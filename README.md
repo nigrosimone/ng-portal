@@ -78,6 +78,40 @@ import { NgPortalModule } from 'ng-portal';
 export class AppModule { }
 ```
 
+## API
+
+Available propery decorators (optional):
+
+ - `@ngPortal(options?: NgPortalDecoratorOptions)`: two way communication
+ - `@ngPortalInput(options?: NgPortalDecoratorOptions)`: only send changes 
+ - `@ngPortalOutput(options?: NgPortalDecoratorOptions)`: only receive changes 
+
+Decorator options interface:
+
+```ts
+export interface NgPortalDecoratorOptions {
+  key: string;
+}
+```
+
+From default `ngPortal` use property name as the key:
+
+```ts
+  @ngPortal() value: string;
+```
+
+is equivalent to:
+
+```ts
+  @ngPortal({key: 'value'}) value: string;
+```
+
+and is also equivalent to:
+
+```ts
+  @ngPortal({key: 'value'}) whateverYouWant: string;
+```
+
 ## Examples
 
 Below there are some examples of use case.
@@ -148,6 +182,32 @@ import { ngPortal } from 'ng-portal';
 })
 export class ModelComponent {
   @ngPortal() model: any;
+}
+```
+
+### Example: NgModel connection by connected by key
+
+`ModelComponent` has property `model` with `@ngPortal({key: 'foo'})` decorator that on change update every property in every components with `@ngPortal({key: 'foo'})` or `@ngPortalOutput({key: 'foo'})` decorators. eg.:
+
+```ts
+import { Component } from '@angular/core';
+import { ngPortal, ngPortalOutput } from 'ng-portal';
+import { Observable } from 'rxjs';
+
+@Component({
+  selector: 'app-model',
+  template: `<input [ngModel]="model | async" (ngModelChange)="model = $event">`,
+})
+export class ModelComponent {
+  @ngPortal({key: 'foo'}) model: any;
+}
+
+@Component({
+  selector: 'app-output',
+  template: `<input [value]="outputValue | async" readonly disabled>`,
+})
+export class OutputComponent {
+  @ngPortalOutput({key: 'foo'}) outputValue: Observable<string>;
 }
 ```
 
