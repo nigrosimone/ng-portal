@@ -228,7 +228,7 @@ export class NgPortalService {
   /**
    * Return an Observable for all the "key" (key or property name)
    */
-  getAll<K>(): Observable<K>;
+  getAll(): Observable<NgPortalServiceMessage>;
 }
 ```
 
