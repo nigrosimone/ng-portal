@@ -217,7 +217,7 @@ export class OutputComponent {
 ```
 
 
-## Cache service
+## Service
 
 You can inject into your component the `NgPortalService` that expose some utils methods:
 
