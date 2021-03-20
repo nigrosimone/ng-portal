@@ -117,6 +117,14 @@ Communication ways:
  - `@ngPortalOutput()` doesn't send
  - `@ngPortalOutput()` receives from `@ngPortal()` and `@ngPortalInput()`
 
+Type:
+
+Behind the scene, `@ngPortal()` apply a getter and a setter on the property:
+
+ - `@ngPortal() property: string;` => `get property(): Observable<string>` and `set property(value: string): void`
+ - `@ngPortalInput() property: string;` => `set property(value: string): void` (only setter available)
+ - `@ngPortalOutput() property: string;` => `get property(): Observable<string>` (only getter available)
+
 ## Examples
 
 Below there are some examples of use case.
