@@ -32,7 +32,7 @@ export class ModelComponent {
 }
 ```
 
-There are also mono-direction directive `@NgPortalInput()` and `@NgPortalOutput()` for more control.
+There are also mono-directional directive `@NgPortalInput()` and `@NgPortalOutput()` for more control.
 
 
 See the [stackblitz demo](https://stackblitz.com/edit/demo-ng-portal?file=src%2Fapp%2Fapp.component.ts).
@@ -40,7 +40,7 @@ See the [stackblitz demo](https://stackblitz.com/edit/demo-ng-portal?file=src%2F
 ## Features
 
 ✅ Two way data binging<br>
-✅ Mono directinal communicazion<br>
+✅ Mono directional communication<br>
 ✅ Async pipe support<br>
 ✅ NgModel support<br>
 
@@ -76,7 +76,7 @@ export class AppModule { }
 
 ## API
 
-Available propery decorators (optional):
+Available property decorators (`options` is optional):
 
  - `@ngPortal(options?: NgPortalDecoratorOptions)`: two way communication
  - `@ngPortalInput(options?: NgPortalDecoratorOptions)`: only send changes 
@@ -107,6 +107,15 @@ and is also equivalent to:
 ```ts
 @ngPortal({key: 'value'}) whateverYouWant: string;
 ```
+
+Communication ways:
+
+ - `@ngPortal()` sends to `@ngPortal()` and `@ngPortalOutput()`
+ - `@ngPortal()` receives from `@ngPortal()` and `@ngPortalInput()`
+ - `@ngPortalInput()` sends to `@ngPortal()` and `@ngPortalOutput()` 
+ - `@ngPortalInput()` doesn't receive
+ - `@ngPortalOutput()` doesn't send
+ - `@ngPortalOutput()` receives from `@ngPortal()` and `@ngPortalInput()`
 
 ## Examples
 
