@@ -9,7 +9,7 @@ This pattern works if component in the same scope.
 In this example an _output component_ set a property `value` imputed by _input component_, eg:
 
 ```html
-<app-output (value)="value = $event"><app-output>
+<app-output (event)="value = $event"><app-output>
 <app-input [value]="value"></app-input>
 ```
 
