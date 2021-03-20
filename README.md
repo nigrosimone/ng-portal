@@ -57,8 +57,6 @@ npm i ng-portal
 ```ts
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { NgPortalModule } from 'ng-portal';
@@ -67,8 +65,6 @@ import { NgPortalModule } from 'ng-portal';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
     NgPortalModule,
   ],
   providers: [],
@@ -97,19 +93,19 @@ export interface NgPortalDecoratorOptions {
 From default `ngPortal` use property name as the key:
 
 ```ts
-  @ngPortal() value: string;
+@ngPortal() value: string;
 ```
 
 is equivalent to:
 
 ```ts
-  @ngPortal({key: 'value'}) value: string;
+@ngPortal({key: 'value'}) value: string;
 ```
 
 and is also equivalent to:
 
 ```ts
-  @ngPortal({key: 'value'}) whateverYouWant: string;
+@ngPortal({key: 'value'}) whateverYouWant: string;
 ```
 
 ## Examples
