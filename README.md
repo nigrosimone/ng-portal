@@ -181,7 +181,7 @@ export class ModelComponent {
 }
 ```
 
-### Example: NgModel connection by connected by key
+### Example: NgModel connection connected by key
 
 `ModelComponent` has property `model` with `@ngPortal({key: 'foo'})` decorator that on change update every property in every components with `@ngPortal({key: 'foo'})` or `@ngPortalOutput({key: 'foo'})` decorators. eg.:
 
