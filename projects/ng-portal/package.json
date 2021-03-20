@@ -1,23 +1,13 @@
 {
   "name": "ng-portal",
-  "version": "1.0.15",
-  "description": "Cache for HTTP requests in Angular application.",
+  "version": "1.0.0",
+  "description": "Component property connection in Angular application.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nigrosimone/ng-portal.git"
   },
   "keywords": [
-    "angular",
-    "cache",
-    "interceptor",
-    "network",
-    "http",
-    "client",
-    "http-client",
-    "header",
-    "headers",
-    "interact",
-    "configuration"
+    "angular"
   ],
   "author": "Simone Nigro <nigro.simone@gmail.com>",
   "license": "MIT",

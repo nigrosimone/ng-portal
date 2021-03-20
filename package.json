@@ -1,7 +1,7 @@
 {
   "name": "ng-portal",
   "version": "1.0.0",
-  "description": "Cache for HTTP requests in Angular application.",
+  "description": "Component property connection in Angular application.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nigrosimone/ng-portal.git"
