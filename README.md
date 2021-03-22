@@ -1,4 +1,4 @@
-# NgPortal [![Build Status](https://travis-ci.org/nigrosimone/ng-portal.svg?branch=master)](https://travis-ci.com/github/nigrosimone/ng-portal) [![Coverage Status](https://coveralls.io/repos/github/nigrosimone/ng-portal/badge.svg?branch=master)](https://coveralls.io/github/nigrosimone/ng-portal?branch=master) [![NPM version](https://img.shields.io/npm/v/ng-portal.svg)](https://www.npmjs.com/package/ng-portal)
+# NgPortal [![Build Status](https://travis-ci.com/nigrosimone/ng-portal.svg?branch=main)](https://travis-ci.com/nigrosimone/ng-portal) [![Coverage Status](https://coveralls.io/repos/github/nigrosimone/ng-portal/badge.svg?branch=main)](https://coveralls.io/github/nigrosimone/ng-portal?branch=main) [![NPM version](https://img.shields.io/npm/v/ng-portal.svg)](https://www.npmjs.com/package/ng-portal)
 
 Component property connection in Angular application.
 
