@@ -5,16 +5,19 @@ import { NgPortalModule } from './ng-portal.module';
 import { ngPortal, ngPortalInput, ngPortalOutput } from './ng-portal.decorator';
 import { Observable } from 'rxjs';
 
-@Component({selector: 'app-model', template: '<div>{{ test }}</div>'})
+// eslint-disable-next-line @angular-eslint/component-selector
+@Component({ selector: 'app-model', template: '<div>{{ test }}</div>' })
+// eslint-disable-next-line @angular-eslint/component-class-suffix
 class TestComponentModel {
     @ngPortal() public model: any;
-    @ngPortalInput({key: 'foo'}) public a: number;
-    @ngPortalOutput({key: 'foo'}) public b: Observable<number>;
+    @ngPortalInput({ key: 'foo' }) public a!: number;
+    @ngPortalOutput({ key: 'foo' }) public b!: Observable<number>;
 }
-@Component({template: '<app-model #one></app-model><app-model #two></app-model>'})
+@Component({ template: '<app-model #one></app-model><app-model #two></app-model>' })
+// eslint-disable-next-line @angular-eslint/component-class-suffix
 class TestComponentContainer {
-    @ViewChild('one', {static: false}) input: TestComponentModel;
-    @ViewChild('two', {static: false}) output: TestComponentModel;
+    @ViewChild('one', { static: false }) input!: TestComponentModel;
+    @ViewChild('two', { static: false }) output!: TestComponentModel;
 }
 describe('NgPortal model', () => {
 
@@ -24,8 +27,8 @@ describe('NgPortal model', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-          declarations: [ TestComponentContainer, TestComponentModel ],
-          imports: [NgPortalModule]
+            declarations: [TestComponentContainer, TestComponentModel],
+            imports: [NgPortalModule]
         });
         fixture = TestBed.createComponent(TestComponentContainer);
         debugElement = fixture.debugElement;
@@ -36,17 +39,17 @@ describe('NgPortal model', () => {
         document.body.removeChild(element);
     });
 
-    it('test property change', (done: DoneFn) => {
+    it('test property change', (done: any) => {
         fixture.detectChanges();
         const TEST_VALUE = 3;
-        fixture.componentInstance.output.model.subscribe(value => {
+        fixture.componentInstance.output.model.subscribe((value: any) => {
             expect(value).toBe(TEST_VALUE);
             done();
         });
         fixture.componentInstance.input.model = TEST_VALUE;
     });
 
-    it('test property change a b', (done: DoneFn) => {
+    it('test property change a b', (done: any) => {
         fixture.detectChanges();
         const TEST_VALUE = 3;
         fixture.componentInstance.output.b.subscribe(value => {

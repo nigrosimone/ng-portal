@@ -5,20 +5,25 @@ import { NgPortalModule } from './ng-portal.module';
 import { ngPortalInput, ngPortalOutput } from './ng-portal.decorator';
 import { Observable } from 'rxjs';
 
-@Component({selector: 'app-input', template: '<div>{{ test }}</div>'})
+// eslint-disable-next-line @angular-eslint/component-selector
+@Component({ selector: 'app-input', template: '<div>{{ test }}</div>' })
+// eslint-disable-next-line @angular-eslint/component-class-suffix
 class TestComponentInput {
-    @ngPortalInput({key: 'foo'}) public y: number;
+    @ngPortalInput({ key: 'foo' }) public y!: number;
     foo: number = 5;
 }
-@Component({selector: 'app-output', template: '<div>{{ test }}</div>'})
+// eslint-disable-next-line @angular-eslint/component-selector
+@Component({ selector: 'app-output', template: '<div>{{ test }}</div>' })
+// eslint-disable-next-line @angular-eslint/component-class-suffix
 class TestComponentOutput {
-    @ngPortalOutput({key: 'foo'}) public y: Observable<number>;
+    @ngPortalOutput({ key: 'foo' }) public y!: Observable<number>;
     foo: number = 6;
 }
-@Component({template: '<app-input></app-input><app-output></app-output>'})
+@Component({ template: '<app-input></app-input><app-output></app-output>' })
+// eslint-disable-next-line @angular-eslint/component-class-suffix
 class TestComponentContainer {
-    @ViewChild(TestComponentInput, {static: false}) input: TestComponentInput;
-    @ViewChild(TestComponentOutput, {static: false}) output: TestComponentOutput
+    @ViewChild(TestComponentInput, { static: false }) input!: TestComponentInput;
+    @ViewChild(TestComponentOutput, { static: false }) output!: TestComponentOutput
 }
 describe('NgPortal input / oputput by key', () => {
 
@@ -28,8 +33,8 @@ describe('NgPortal input / oputput by key', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-          declarations: [ TestComponentContainer, TestComponentInput, TestComponentOutput ],
-          imports: [NgPortalModule]
+            declarations: [TestComponentContainer, TestComponentInput, TestComponentOutput],
+            imports: [NgPortalModule]
         });
         fixture = TestBed.createComponent(TestComponentContainer);
         debugElement = fixture.debugElement;
@@ -40,7 +45,7 @@ describe('NgPortal input / oputput by key', () => {
         document.body.removeChild(element);
     });
 
-    it('test property change', (done: DoneFn) => {
+    it('test property change', (done: any) => {
         fixture.detectChanges();
         const TEST_VALUE = 3;
         fixture.componentInstance.output.y.subscribe(value => {
