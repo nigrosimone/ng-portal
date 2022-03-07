@@ -15,7 +15,7 @@ const service = new NgPortalService();
 /**
  * Return the proper decorator
  */
-const defineDecorator = (hasGetter: boolean, hasSetter: boolean, options?: NgPortalDecoratorOptions): NgPortalDecorator => {
+export const defineDecorator = (hasGetter: boolean, hasSetter: boolean, options?: NgPortalDecoratorOptions): NgPortalDecorator => {
   return (target: object, propertyKey: string) => {
 
     let key: string = propertyKey;
