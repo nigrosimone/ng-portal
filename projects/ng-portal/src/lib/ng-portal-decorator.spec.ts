@@ -1,10 +1,10 @@
 import { defineDecorator } from "../public-api";
 
 describe('NgPortal defineDecorator', () => {
-    it('test property change', () => {
-        const decorator = defineDecorator(true, true);
-
+    it('getter or setter error', () => {
         expect(function () { 
+
+            const decorator = defineDecorator(true, true);
             
             decorator({
                 get foo() {
@@ -17,6 +17,5 @@ describe('NgPortal defineDecorator', () => {
 
 
          }).toThrow(new Error(`NgPortal don't support property getter or setter`));
-
     });
 });
