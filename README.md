@@ -5,30 +5,46 @@ Component property connection in Angular application.
 ## Description
 
 Sometime there is a need to send data beetween components. A common pattern in Angular is sharing data between a parent component and one or more child components by using the `@Input()` and `@Output()` directives.
-This pattern works if component in the same scope. 
+This pattern works if component are in the same scope. 
 In this example an _output component_ set a property `value` imputed by _input component_, eg:
 
-```html
-<app-output (event)="value = $event"><app-output>
-<app-input [value]="value"></app-input>
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-component',
+  template: `<app-output (event)="value = $event"><app-output>
+             <app-input [value]="value"></app-input>`,
+})
+export class AppComponent {
+  value: string;
+}
 ```
 
 But what happen if both component arent in the same scope? A common pattern in this case is propagate `@Input()` and `@Output()` throught the tree of parents/childs component or write a shared service for exhange the data.
 
 `NgPortal` offer a dead simple solution, a new directive `@NgPortal()` that connect two property wherever they are.
 
-In this example every property called `model` with `@NgPortal()` directive is connected and every changes is propagated wherever, eg.:
+In this example every property called `value` with `@NgPortal()` directive is connected and every changes is propagated wherever, eg.:
 
 ```ts
 import { Component } from '@angular/core';
-import { ngPortal } from 'ng-portal';
+import { ngPortalInput, ngPortalOutput } from 'ng-portal';
 
 @Component({
-  selector: 'app-model',
-  template: `<input [ngModel]="model | async" (ngModelChange)="model = $event">`,
+  selector: 'app-input',
+  template: `<input (keyup)="value = $event.target['value']">`,
 })
-export class ModelComponent {
-  @ngPortal() model: any;
+export class InputComponent {
+  @ngPortalInput() value: string;
+}
+
+@Component({
+  selector: 'app-output',
+  template: `{{ value | async }}`,
+})
+export class OutputComponent {
+  @ngPortalOutput() value: Observable<string>;
 }
 ```
 
