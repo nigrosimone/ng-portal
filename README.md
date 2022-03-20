@@ -164,7 +164,7 @@ export class InputComponent {
 
 @Component({
   selector: 'app-output',
-  template: `<input [value]="value | async" readonly disabled>`,
+  template: `{{ value | async }}`,
 })
 export class OutputComponent {
   @ngPortalOutput() value: Observable<string>;
@@ -190,7 +190,7 @@ export class InputComponent {
 
 @Component({
   selector: 'app-output',
-  template: `<input [value]="outputValue | async" readonly disabled>`,
+  template: `{{ value | async }}`,
 })
 export class OutputComponent {
   @ngPortalOutput({key: 'foo'}) outputValue: Observable<string>;
@@ -233,7 +233,7 @@ export class ModelComponent {
 
 @Component({
   selector: 'app-output',
-  template: `<input [value]="outputValue | async" readonly disabled>`,
+  template: `{{ value | async }}`,
 })
 export class OutputComponent {
   @ngPortalOutput({key: 'foo'}) outputValue: Observable<string>;
