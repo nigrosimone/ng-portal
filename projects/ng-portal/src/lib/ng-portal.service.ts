@@ -11,11 +11,31 @@ const event: Subject<NgPortalServiceMessage> = new Subject<NgPortalServiceMessag
 
 @Injectable()
 export class NgPortalService {
+
+    private static instance: NgPortalService | undefined = undefined;
+
+    constructor() {
+        if (NgPortalService.instance) {
+            return NgPortalService.instance;
+        }
+        NgPortalService.instance = this;
+    }
+
+    /**
+    * Return an instance of the NgPortalService
+    */
+    public static getService(): NgPortalService {
+        if (!NgPortalService.instance) {
+            throw new Error('NgPortalService not initialized');
+        }
+        return NgPortalService.instance;
+    }
+
     /**
      * Send a "value" for the "key" (key or property name)
      */
     send(key: string, value: any): void {
-        return event.next({key, value});
+        return event.next({ key, value });
     }
 
     /**

@@ -57,21 +57,21 @@ export const defineDecorator = (hasGetter: boolean, hasSetter: boolean, options?
  * Send value received by ngPortalOutput or ngPortal decorators and/or NgPortalService.
  * Receive value sended by ngPortalInput and/or ngPortal decorators and/or NgPortalService.
  */
-export function ngPortal(options?: NgPortalDecoratorOptions): NgPortalDecorator {
+export const ngPortal = (options?: NgPortalDecoratorOptions): NgPortalDecorator => {
   return defineDecorator(true, true, options);
 }
 
 /**
  * Send value received by ngPortalOutput or ngPortal decorators and/or NgPortalService.
  */
-export function ngPortalInput(options?: NgPortalDecoratorOptions): NgPortalDecorator {
+export const ngPortalInput = (options?: NgPortalDecoratorOptions): NgPortalDecorator => {
   return defineDecorator(false, true, options);
 }
 
 /**
  * Receive value sended by ngPortalInput and/or ngPortal decorators and/or NgPortalService.
  */
-export function ngPortalOutput(options?: NgPortalDecoratorOptions): NgPortalDecorator {
+export const ngPortalOutput = (options?: NgPortalDecoratorOptions): NgPortalDecorator => {
   return defineDecorator(true, false, options);
 }
 
