@@ -42,20 +42,24 @@ describe('NgPortal model', () => {
     it('test property change', (done: any) => {
         fixture.detectChanges();
         const TEST_VALUE = 3;
-        fixture.componentInstance.output.model.subscribe((value: any) => {
+        const sub = fixture.componentInstance.output.model.subscribe((value: any) => {
             expect(value).toBe(TEST_VALUE);
+            sub.unsubscribe();
             done();
         });
         fixture.componentInstance.input.model = TEST_VALUE;
+        fixture.detectChanges();
     });
 
     it('test property change a b', (done: any) => {
         fixture.detectChanges();
         const TEST_VALUE = 3;
-        fixture.componentInstance.output.b.subscribe(value => {
+        const sub = fixture.componentInstance.output.b.subscribe(value => {
             expect(value).toBe(TEST_VALUE);
+            sub.unsubscribe();
             done();
         });
         fixture.componentInstance.input.a = TEST_VALUE;
+        fixture.detectChanges();
     });
 });

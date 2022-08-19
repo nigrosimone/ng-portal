@@ -7,12 +7,11 @@ export interface NgPortalServiceMessage {
     value: any;
 }
 
-const event: Subject<NgPortalServiceMessage> = new Subject<NgPortalServiceMessage>();
-
 @Injectable()
 export class NgPortalService {
 
     private static instance: NgPortalService | undefined = undefined;
+    private event: Subject<NgPortalServiceMessage> = new Subject<NgPortalServiceMessage>();
 
     constructor() {
         if (NgPortalService.instance) {
@@ -35,7 +34,7 @@ export class NgPortalService {
      * Send a "value" for the "key" (key or property name)
      */
     send(key: string, value: any): void {
-        return event.next({ key, value });
+        return this.event.next({ key, value });
     }
 
     /**
@@ -49,6 +48,6 @@ export class NgPortalService {
      * Return an Observable for all the "key" (key or property name)
      */
     getAll(): Observable<NgPortalServiceMessage> {
-        return event.asObservable();
+        return this.event.asObservable();
     }
 }

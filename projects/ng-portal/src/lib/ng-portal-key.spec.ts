@@ -55,5 +55,6 @@ describe('NgPortal input / oputput by key', () => {
             done();
         });
         fixture.componentInstance.input.y = TEST_VALUE;
+        fixture.detectChanges();
     });
 });
