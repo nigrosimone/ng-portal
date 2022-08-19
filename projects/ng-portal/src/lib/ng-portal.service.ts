@@ -21,16 +21,6 @@ export class NgPortalService {
     }
 
     /**
-    * Return an instance of the NgPortalService
-    */
-    public static getService(): NgPortalService {
-        if (!NgPortalService.instance) {
-            throw new Error('NgPortalService not initialized');
-        }
-        return NgPortalService.instance;
-    }
-
-    /**
      * Send a "value" for the "key" (key or property name)
      */
     send(key: string, value: any): void {
