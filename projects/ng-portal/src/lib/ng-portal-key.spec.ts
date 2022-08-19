@@ -48,10 +48,11 @@ describe('NgPortal input / oputput by key', () => {
     it('test property change', (done: any) => {
         fixture.detectChanges();
         const TEST_VALUE = 3;
-        fixture.componentInstance.output.y.subscribe(value => {
+        const sub = fixture.componentInstance.output.y.subscribe(value => {
             expect(value).toBe(TEST_VALUE);
             expect(fixture.componentInstance.input.foo).toBe(5);
             expect(fixture.componentInstance.output.foo).toBe(6);
+            sub.unsubscribe();
             done();
         });
         fixture.componentInstance.input.y = TEST_VALUE;
