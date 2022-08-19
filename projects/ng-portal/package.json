@@ -1,6 +1,6 @@
 {
   "name": "ng-portal",
-  "version": "13.0.3",
+  "version": "14.0.0",
   "description": "Component property connection in Angular application wherever they are.",
   "repository": {
     "type": "git",
@@ -16,8 +16,8 @@
   },
   "homepage": "https://github.com/nigrosimone/ng-portal",
   "peerDependencies": {
-    "@angular/common": "^13.0.0",
-    "@angular/core": "^13.0.0"
+    "@angular/common": "^14.0.0",
+    "@angular/core": "^14.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
