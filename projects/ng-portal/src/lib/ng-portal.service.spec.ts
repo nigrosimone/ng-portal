@@ -20,4 +20,13 @@ describe('NgPortal NgPortalService', () => {
         expect(service === service2).toBe(true);
         expect(service1 === service2).toBe(true);
     });
+
+    it('send / get', (done: any) => {
+        const sub = service.get('test').subscribe(value => {
+            expect(value).toBe('testValue');
+            sub.unsubscribe();
+            done();
+        });
+        service.send('test', 'testValue');
+    });
 });
