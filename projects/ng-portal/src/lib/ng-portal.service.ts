@@ -24,14 +24,14 @@ export class NgPortalService {
      * Send a "value" for the "key" (key or property name)
      */
     send(key: string, value: any): void {
-        return this.event.next({ key, value });
+        this.event.next({ key, value });
     }
 
     /**
      * Return an Observable for the "key" (key or property name)
      */
     get<K>(key: string): Observable<K> {
-        return this.getAll().pipe(filter(e => e.key == key), map(e => e.value));
+        return this.getAll().pipe(filter(e => e.key === key), map(e => e.value));
     }
 
     /**

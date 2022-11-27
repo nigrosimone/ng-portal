@@ -31,7 +31,7 @@ export const defineDecorator = (hasGetter: boolean, hasSetter: boolean, options?
     const hasPropertyGetter = descriptor && descriptor.get ? true : false;
 
     if (hasPropertySetter || hasPropertyGetter) {
-      throw Error(`NgPortal don't support property getter or setter`);
+      throw Error(`NgPortal don't support property with getter or setter`);
     }
 
     Object.defineProperty(target, propertyKey, {
