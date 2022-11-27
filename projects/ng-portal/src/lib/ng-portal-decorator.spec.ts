@@ -16,6 +16,6 @@ describe('NgPortal defineDecorator', () => {
             }, 'foo')
 
 
-         }).toThrow(new Error(`NgPortal don't support property getter or setter`));
+         }).toThrow(new Error(`NgPortal don't support property with getter or setter`));
     });
 });
