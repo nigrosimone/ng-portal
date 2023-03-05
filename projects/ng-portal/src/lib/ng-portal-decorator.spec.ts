@@ -11,7 +11,7 @@ describe('NgPortal defineDecorator', () => {
                     return null;
                 },
                 set foo(val: any) {
-    
+                    // ...
                 }
             }, 'foo')
 

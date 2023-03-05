@@ -4,7 +4,6 @@ export interface NgPortalDecoratorOptions {
   key: string;
 }
 
-// eslint-disable-next-line no-unused-vars
 export type NgPortalDecorator = (target: object, propertyKey: string) => void;
 
 /**
