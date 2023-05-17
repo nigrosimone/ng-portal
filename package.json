@@ -1,6 +1,6 @@
 {
   "name": "ng-portal",
-  "version": "16.0.0",
+  "version": "16.0.1",
   "description": "Component property connection in Angular application wherever they are.",
   "repository": {
     "type": "git",
