@@ -34,12 +34,14 @@ export const defineDecorator = (hasGetter: boolean, hasSetter: boolean, options?
     }
 
     Object.defineProperty(target, propertyKey, {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       get: (): any => {
         if (!hasGetter) {
           throw Error(`Use "@ngPortalOutput({key: '${key}'})" or "@ngPortal({key: '${key}'})" for retrive the value`);
         }
         return obs;
       },
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       set: (value: any) => {
         if (!hasSetter) {
           throw Error(`Use "@ngPortalInput({key: '${key}'})" or "@ngPortal({key: '${key}'})" for send the value`);

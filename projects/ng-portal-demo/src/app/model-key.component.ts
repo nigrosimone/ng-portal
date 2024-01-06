@@ -7,5 +7,6 @@ import { ngPortal } from 'projects/ng-portal/src/public-api';
   template: `<input [ngModel]="model | async" (ngModelChange)="model = $event">`,
 })
 export class ModelKeyComponent {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @ngPortal({key: 'bar'}) model: any;
 }

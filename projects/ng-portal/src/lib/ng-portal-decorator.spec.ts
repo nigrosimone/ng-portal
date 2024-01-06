@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineDecorator } from "../public-api";
 
 describe('NgPortal defineDecorator', () => {

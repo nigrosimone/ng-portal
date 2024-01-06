@@ -4,6 +4,7 @@ import { filter, map } from 'rxjs/operators';
 
 export interface NgPortalServiceMessage {
     key: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     value: any;
 }
 
@@ -23,6 +24,7 @@ export class NgPortalService {
     /**
      * Send a "value" for the "key" (key or property name)
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     send(key: string, value: any): void {
         this.event.next({ key, value });
     }

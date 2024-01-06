@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { TestBed } from '@angular/core/testing';
 import { NgPortalModule } from './ng-portal.module';
 import { NgPortalService } from './ng-portal.service';
@@ -14,7 +15,7 @@ describe('NgPortal NgPortalService', () => {
         service = TestBed.inject(NgPortalService);
     });
 
-    it('unique istance', () => {
+    it('unique instance', () => {
         const service1 = new NgPortalService();
         const service2 = new NgPortalService();
         expect(service === service2).toBe(true);
